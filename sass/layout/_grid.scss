@@ -1,0 +1,25 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto; // 0 from up and down but auto from right and left to center it
+  display: flex;
+
+  gap: $gutter-vertical;
+
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    gap: $gutter-vertical-small;
+    max-width: 50rem;
+  }
+
+  & .col {
+    width: 50%;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+}
+// [class^="col-"] select all classes that    START      with col-
+// [class$="col-"] select all classes that    END        with col-
+// [class*="col-"] select all classes that    CONTAIN    the col-

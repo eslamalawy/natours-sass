@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* it will inherit it from body */
+  box-sizing: inherit;
+}
+html {
+ 
+  @include respond(big-desktop) {
+    font-size: calc((12 / 16) * 100%);
+  }
+
+  /* 1rem = 10px */
+  /* font-size: 10px;  10/16  * 100% =      */
+  // font-size: 62.5%;
+  font-size: calc((10 / 16) * 100%);
+
+  // always larger ones comes before the small ones
+  @include respond(tab-land) {
+    font-size: calc((9 / 16) * 100%);
+  }
+  @include respond(tab-port) {
+    font-size: calc((8 / 16) * 100%);
+  }
+ 
+
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
